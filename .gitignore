@@ -1,0 +1,17 @@
+/.idea
+*.iml
+.idea/
+
+*.class
+/*/target/
+/web/APP_HOME_IS_UNDEFINED/
+/web/catalina.base_IS_UNDEFINED/
+
+.classpath
+.project
+.settings/
+
+*.factorypath
+*.swp
+*version.vm
+*.log
