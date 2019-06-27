@@ -23,7 +23,7 @@ public class Test {
        System.out.println(b);
     }
 
-    public static void main (String ... args) {
+    public static void main2 (String ... args) {
         DivTask a = new DivTask();
         DivTask b = new DivTask();
         System.out.println(a);
@@ -32,5 +32,33 @@ public class Test {
         System.out.println( t == p);
         a = b;
         System.out.println(t == p);
+    }
+
+    public static void main (String ... args) {
+
+        pool();
+    }
+
+    // 测试标记的写法
+    public static void pool(){
+        int j =0;
+        restartFromHead1:
+        for (;;) {
+            System.out.println();
+            int i=0;
+            j ++;
+            if (j>5)
+                return;
+            do {
+                i ++;
+                System.out.println(i);
+                if (i == 4) {
+                    continue restartFromHead1;
+                }
+            }while (i<10);
+
+
+        }
+
     }
 }
