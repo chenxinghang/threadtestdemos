@@ -34,7 +34,7 @@ public class Test {
         System.out.println(t == p);
     }
 
-    public static void main (String ... args) {
+    public static void main3 (String ... args) {
 
         pool();
     }
@@ -60,5 +60,11 @@ public class Test {
 
         }
 
+    }
+
+    public static void main(String ... args) {
+        int i =0 , k=0;
+        System.out.println(i++);
+        System.out.println(++k);
     }
 }
