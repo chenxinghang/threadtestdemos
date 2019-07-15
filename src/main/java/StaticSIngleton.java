@@ -11,7 +11,7 @@ public class StaticSIngleton {
         System.out.println("StaticSIngleton is creating");
     }
 
-    private static class SingleHolder{
+    private static class SingleHolder {
         private static StaticSIngleton instance = new StaticSIngleton();
 
     }

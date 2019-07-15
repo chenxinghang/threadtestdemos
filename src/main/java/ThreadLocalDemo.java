@@ -17,7 +17,7 @@ public class ThreadLocalDemo {
 
     static ThreadLocal<SimpleDateFormat> tl = new ThreadLocal<>();
 
-    public static class ParseDate implements Runnable{
+    public static class ParseDate implements Runnable {
 
         int i = 0;
 
@@ -30,12 +30,12 @@ public class ThreadLocalDemo {
 
             try {
                 Date t = sdf.parse("2019-6-28 23:33:33");
-                System.out.println(t+"date is "+t);
-            }catch (Exception e3) {
+                System.out.println(t + "date is " + t);
+            } catch (Exception e3) {
                 e3.printStackTrace();
             }
 
-    }
+        }
 
 
     }
@@ -57,17 +57,17 @@ public class ThreadLocalDemo {
                     System.out.println(1111);
                 }
                 Date t = tl.get().parse("2019-6-28 23:33:33");
-                System.out.println(t+"date is "+t);
-            }catch (Exception e3) {
+                System.out.println(t + "date is " + t);
+            } catch (Exception e3) {
                 e3.printStackTrace();
             }
 
         }
     }
 
-    public static void main(String ... args) {
+    public static void main(String... args) {
         ExecutorService es = Executors.newFixedThreadPool(10);
-        for (int i=0;i<20;i++) {
+        for (int i = 0; i < 20; i++) {
             es.execute(new ParseDate2(11));
         }
         es.shutdown();

@@ -20,8 +20,8 @@ public class LockFreeVector<E> {
 
     public LockFreeVector() {
         this.buckets = new AtomicReferenceArray<>(N_BUCKET);
-        buckets.set(0,new AtomicReferenceArray<E>(FIREST_BUCKET_SIZE));
-        this.descriptor = new Descriptor<>(0,null);
+        buckets.set(0, new AtomicReferenceArray<E>(FIREST_BUCKET_SIZE));
+        this.descriptor = new Descriptor<>(0, null);
     }
 
     static class Descriptor<E> {
@@ -41,10 +41,12 @@ public class LockFreeVector<E> {
                 wirteop = null;
             }
         }
-        public Descriptor get(){
+
+        public Descriptor get() {
             return this;
         }
     }
+
     static class WirterDescriptor<E> {
         public E oldV;
         public E newV;
@@ -59,7 +61,7 @@ public class LockFreeVector<E> {
         }
 
         public void doIt() {
-            addr.compareAndSet(addr_ind,oldV,newV);
+            addr.compareAndSet(addr_ind, oldV, newV);
         }
     }
 

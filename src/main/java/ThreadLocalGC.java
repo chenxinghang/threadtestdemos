@@ -18,7 +18,7 @@ public class ThreadLocalGC {
         @Override
         protected void finalize() throws Throwable {
             super.finalize();
-            System.out.println(this.toString() +" is gc");
+            System.out.println(this.toString() + " is gc");
         }
     };
 
@@ -39,25 +39,25 @@ public class ThreadLocalGC {
                         @Override
                         protected void finalize() throws Throwable {
                             super.finalize();
-                            System.out.println(this.toString() +" is gc");
+                            System.out.println(this.toString() + " is gc");
                         }
-                    }) ;
-                    System.out.println(Thread.currentThread().getId()+":Create SimpleDateFormat");
+                    });
+                    System.out.println(Thread.currentThread().getId() + ":Create SimpleDateFormat");
                 }
-                Date t = tl.get().parse("2019-06-06 21:21:21"+i%60);
+                Date t = tl.get().parse("2019-06-06 21:21:21" + i % 60);
 
-            }catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-            }finally {
+            } finally {
                 cd.countDown();
             }
         }
     }
 
-    public static void main(String ... args) throws InterruptedException{
+    public static void main(String... args) throws InterruptedException {
 
         ExecutorService es = Executors.newFixedThreadPool(10);
-        for (int i=0; i<10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             es.execute(new ParseDate(i));
         }
         cd.await();
@@ -67,7 +67,7 @@ public class ThreadLocalGC {
         System.out.println("first GC complete!!");
         tl = new ThreadLocal<SimpleDateFormat>();
 
-        for (int i=0; i<10000; i++) {
+        for (int i = 0; i < 10000; i++) {
             es.execute(new ParseDate(i));
         }
         cd.await();

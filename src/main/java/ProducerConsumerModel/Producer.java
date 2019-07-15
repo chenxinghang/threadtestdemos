@@ -12,9 +12,9 @@ import java.util.concurrent.atomic.AtomicInteger;
  * <p>
  * Sign: My name is leon 兴趣使然写代码的人 ≡(▔﹏▔)≡ ≧ω≦
  **/
-public class Producer implements Runnable{
+public class Producer implements Runnable {
 
-    private  BlockingDeque<PCData> blockingDeque;
+    private BlockingDeque<PCData> blockingDeque;
 
     private volatile boolean isRunning = true;
 
@@ -30,25 +30,25 @@ public class Producer implements Runnable{
     public void run() {
         PCData pcData = null;
         Random r = new Random();
-        System.out.println("start producer id is: "+Thread.currentThread().getId());
+        System.out.println("start producer id is: " + Thread.currentThread().getId());
 
         try {
             while (isRunning) {
                 Thread.sleep(r.nextInt(SLEEPTIME));
                 pcData = new PCData(count.incrementAndGet());
-                System.out.println(pcData+"data is put in Queue");
+                System.out.println(pcData + "data is put in Queue");
                 if (!blockingDeque.offer(pcData, 2, TimeUnit.SECONDS)) {
-                    System.err.println("failed to put in 缓冲区 data"+pcData);
+                    System.err.println("failed to put in 缓冲区 data" + pcData);
                 }
 
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
             Thread.currentThread().interrupt();
         }
     }
 
-    public void stop () {
+    public void stop() {
         isRunning = false;
     }
 }

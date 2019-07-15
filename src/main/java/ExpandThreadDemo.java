@@ -18,8 +18,9 @@ public class ExpandThreadDemo {
         public MyTask(String name) {
             this.name = name;
         }
+
         public void run() {
-            System.out.println("正在执行 ThreadID:"+Thread.currentThread().getId()+" TaskName:"+name);
+            System.out.println("正在执行 ThreadID:" + Thread.currentThread().getId() + " TaskName:" + name);
             try {
                 Thread.sleep(100);
             } catch (InterruptedException e) {
@@ -28,25 +29,27 @@ public class ExpandThreadDemo {
         }
     }
 
-    public static void main(String ... args) throws InterruptedException {
-        ExecutorService es = new ThreadPoolExecutor(5,5,0L,
-                TimeUnit.MILLISECONDS,new LinkedBlockingQueue<Runnable>(5)) {
+    public static void main(String... args) throws InterruptedException {
+        ExecutorService es = new ThreadPoolExecutor(5, 5, 0L,
+                TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>(5)) {
             @Override
-            protected void beforeExecute(Thread thread,Runnable r) {
-                System.out.println("read to run task name is ["+((MyTask)r).name+"]");
+            protected void beforeExecute(Thread thread, Runnable r) {
+                System.out.println("read to run task name is [" + ((MyTask) r).name + "]");
             }
+
             @Override
-            protected void afterExecute(Runnable r,Throwable t) {
-                System.out.println("after run tast name is ["+((MyTask)r).name+"]");
+            protected void afterExecute(Runnable r, Throwable t) {
+                System.out.println("after run tast name is [" + ((MyTask) r).name + "]");
             }
+
             @Override
             protected void terminated() {
                 System.out.println("线程池退出");
             }
 
         };
-        for (int i=0; i<10; i++) {
-            MyTask task = new MyTask("嘿嘿["+i+"]");
+        for (int i = 0; i < 10; i++) {
+            MyTask task = new MyTask("嘿嘿[" + i + "]");
             es.execute(task);
             Thread.sleep(10);
         }

@@ -15,19 +15,19 @@ public class AutomicIntegerDemo {
 
         @Override
         public void run() {
-            for (int k = 0; k<10000; k++) {
+            for (int k = 0; k < 10000; k++) {
                 i.incrementAndGet();
             }
         }
     }
 
-    public static void main(String ... args) throws InterruptedException {
+    public static void main(String... args) throws InterruptedException {
         Thread[] threads = new Thread[10];
-        for (int k=0; k<10; k++) {
+        for (int k = 0; k < 10; k++) {
             threads[k] = new Thread(new AddThread());
         }
-        for (int i=0;i<10;i++)threads[i].start();
-        for (int i=0;i<10;i++)threads[i].join();
+        for (int i = 0; i < 10; i++) threads[i].start();
+        for (int i = 0; i < 10; i++) threads[i].join();
         System.out.println(i);
     }
 }

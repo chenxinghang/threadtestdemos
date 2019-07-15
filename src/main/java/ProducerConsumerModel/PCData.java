@@ -14,6 +14,7 @@ public final class PCData {
     public PCData(int data) {
         this.data = data;
     }
+
     public PCData(String data) {
         this.data = Integer.parseInt(data);
     }

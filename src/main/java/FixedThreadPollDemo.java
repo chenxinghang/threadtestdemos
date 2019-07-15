@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class FixedThreadPollDemo {
 
 
-    public static void main (String ... args) {
+    public static void main(String... args) {
         /**
          * 插入入参数num
          * newFiexeThread 测速额是用一个LinkedBlockingQueue作为存放任务的队列，有序，最大值为int的最大值
@@ -23,10 +23,10 @@ public class FixedThreadPollDemo {
          */
         ExecutorService executorService = Executors.newFixedThreadPool(10);
 
-        for (int i=0;i<10;i++) {
+        for (int i = 0; i < 10; i++) {
             executorService.submit(new Runnable() {
                 public void run() {
-                    System.out.println(System.currentTimeMillis()/100+" "+Thread.currentThread().getName());
+                    System.out.println(System.currentTimeMillis() / 100 + " " + Thread.currentThread().getName());
                 }
             });
         }

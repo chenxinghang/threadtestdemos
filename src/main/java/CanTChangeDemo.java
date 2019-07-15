@@ -7,7 +7,7 @@
  **/
 public final class CanTChangeDemo {
 
-    private int  money;
+    private int money;
 
     public CanTChangeDemo(int money) {
         this.money = money;

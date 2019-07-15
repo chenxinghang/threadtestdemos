@@ -7,7 +7,7 @@ import java.util.concurrent.*;
  * <p>
  * Sign: My name is leon 兴趣使然写代码的人 ≡(▔﹏▔)≡ ≧ω≦
  **/
-public class DivTask implements Runnable{
+public class DivTask implements Runnable {
 
     private int a;
 
@@ -28,9 +28,9 @@ public class DivTask implements Runnable{
         System.out.println(c);
     }
 
-    public static void main(String ... args) {
-        ExecutorService es = new ThreadPoolExecutor(0,Integer.MAX_VALUE,0L, TimeUnit.MICROSECONDS,new SynchronousQueue<Runnable>());
-        for (int i =0; i<5; i++) {
+    public static void main(String... args) {
+        ExecutorService es = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 0L, TimeUnit.MICROSECONDS, new SynchronousQueue<Runnable>());
+        for (int i = 0; i < 5; i++) {
             /**
              * 这里使用submit必须呀要用的 Future接受不然会吃掉异常栈
              */
@@ -42,7 +42,7 @@ public class DivTask implements Runnable{
 //            } catch (ExecutionException e) {
 //                e.printStackTrace();
 //            }
-            es.execute(new DivTask(100,i));
+            es.execute(new DivTask(100, i));
         }
         es.shutdown();
     }
