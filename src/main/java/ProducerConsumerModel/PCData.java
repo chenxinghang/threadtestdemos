@@ -7,7 +7,7 @@ package ProducerConsumerModel;
  * <p>
  * Sign: My name is leon 兴趣使然写代码的人 ≡(▔﹏▔)≡ ≧ω≦
  **/
-public final class PCData {
+public class PCData {
 
     private final int data;
 
