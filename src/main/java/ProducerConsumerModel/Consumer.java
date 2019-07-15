@@ -1,6 +1,5 @@
 package ProducerConsumerModel;
 
-import com.sun.xml.internal.bind.v2.runtime.output.Pcdata;
 
 import java.text.MessageFormat;
 import java.util.Random;
