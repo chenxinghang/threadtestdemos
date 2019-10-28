@@ -62,9 +62,14 @@ public class Test {
 
     }
 
-    public static void main(String... args) {
+    public static void main4(String... args) {
         int i = 0, k = 0;
         System.out.println(i++);
         System.out.println(++k);
+    }
+
+    public static void main(String ... args) {
+        String str = "1:{%s}2{%s}3{%s}";
+        System.out.println(String.format(str, 11,22,33));
     }
 }
